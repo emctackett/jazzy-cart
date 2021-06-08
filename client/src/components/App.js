@@ -67,16 +67,17 @@ const App = () => {
       .catch(error => console.log(error));
   }
 
-  const handleAddToCart = (formData) => {
-    if (formData.quantity === 0) {
+  const handleAddToCart = (productData) => {
+    if (productData.quantity === 0) {
       return;
     }
-    const id = formData.productId;
-    formData.quantity--;
+    const id = productData.productId;
+    productData.quantity--;
     axios
-      .put(`/api/products/${id}`, formData);
+      .put(`/api/products/${id}`, productData);
+      // setProducts to new products
     axios
-      .post("/api/cart", formData)
+      .post("/api/cart", productData)
       .then(response => response.data)
       .then(item => {
         let matched = false;
