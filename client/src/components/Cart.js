@@ -1,12 +1,17 @@
 import React from "react";
 import CartItem from "./CartItem";
 
-const Cart = ({cartItems}) => {
+const Cart = ({cartItems, onCheckout}) => {
   const getTotal = () => {
       return cartItems.reduce((acc, item) => {
         return acc + (item.price * item.quantity);
       }, 0);
   };
+
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    onCheckout();
+  }
 
   return (
     <div class="cart">
@@ -24,7 +29,7 @@ const Cart = ({cartItems}) => {
           </tr>
         </tbody>
       </table>
-      <a class="button checkout">Checkout</a>
+      <a class="button checkout" onClick={handleCheckout}>Checkout</a>
     </div>
   );
 }

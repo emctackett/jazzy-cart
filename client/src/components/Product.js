@@ -2,7 +2,7 @@ import React from "react";
 import EditProduct from "./EditProduct";
 import { useState } from "react";
 
-const Product = ({id, title, price, quantity, addToCart}) => {
+const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDeleteProduct, onAddToCart}) => {
   const [showEdit, setEdit] = useState(false);
 
   const showForm = () => {
@@ -13,6 +13,16 @@ const Product = ({id, title, price, quantity, addToCart}) => {
     setEdit(false);
   }
 
+  const handleDeleteProduct = (e) => {
+    e.preventDefault();
+    onDeleteProduct(_id);
+  }
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    onAddToCart({productId: _id, title, price, quantity});
+  }
+
   return (
     <div class="product">
       <div class="product-details">
@@ -20,11 +30,11 @@ const Product = ({id, title, price, quantity, addToCart}) => {
         <p class="price">{price}</p>
         <p class="quantity">{quantity} left in stock</p>
         <div class="actions product-actions">
-          <a class="button add-to-cart" onClick={() => { addToCart({id, title, price, quantity: 1}) }}>Add to Cart</a>
+          <a class="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
           <a class="button edit" onClick={showForm}>Edit</a>
-          {showEdit ? <EditProduct title={title} price={price} quantity={quantity} handler={hideForm}/> : <></>}
+          {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} onUpdateProduct={onUpdateProduct}/> : <></>}
         </div>
-        <a class="delete-button"><span>X</span></a>
+        <a class="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
       </div>
     </div>
   )
