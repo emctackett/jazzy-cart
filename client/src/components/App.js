@@ -6,8 +6,6 @@ import AddProductForm from './AddProductForm';
 
 import { useState, useEffect } from 'react';
 
-import data from '../lib/data';
-
 const App = () => {
 	const [ products, setProducts ] = useState([]);
 	const [ cartItems, setCartItems ] = useState([]);
@@ -81,16 +79,13 @@ const App = () => {
 			setProducts(updatedProducts);
 		});
 
-		// setProducts to new products
 		axios.post('/api/cart', productData).then((response) => response.data).then((item) => {
 			let matched = false;
 			const updatedCartItems = cartItems.map((cartItem) => {
 				if (cartItem.productId === item.productId) {
-					// console.log(item._id);
 					matched = true;
 					return { ...item };
 				} else {
-					// console.log(cartItem._id);
 					return { ...cartItem };
 				}
 			});
