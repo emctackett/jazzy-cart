@@ -20,7 +20,7 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    onAddToCart({productId: _id, title, price, quantity});
+    onAddToCart({productId: _id, _id, title, price, quantity});
   }
 
   return (
