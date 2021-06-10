@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import Header from './Header';
+// import axios from 'axios';
+// import Header from './Header';
 import Products from './Products';
-import AddProductForm from './AddProductForm';
+// import AddProductForm from './AddProductForm';
 
-import {useState, useEffect} from 'react';
+// import {useState, useEffect} from 'react';
 
 const App = () => {
 

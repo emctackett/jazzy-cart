@@ -4,8 +4,8 @@ export const productsReceivedSuccess = (products) => {
   }
 };
 
-export const deleteProduct = (productId) => {
+export const deleteProduct = (products, productId) => {
   return {
-    type: "PRODUCT_DELETE", payload: {productId}
+    type: "PRODUCT_DELETE", payload: {products, productId}
   }
 };
