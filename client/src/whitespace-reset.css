@@ -66,6 +66,6 @@ mark {
 abbr {
   border: none;
 }
-summary::-webkit-details-marker {
+summary::marker {
   display: none;
 }
