@@ -16,7 +16,7 @@ const Products = ({addToCart, onUpdateProduct, onDeleteProduct, onAddToCart}) =>
     axios
       .get('/api/products')
       .then((response) => {
-        console.log(response.data)
+        //console.log(response.data)
         return response.data
       })
       .then(data => dispatch(productsReceivedSuccess(data)))

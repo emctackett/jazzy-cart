@@ -30,11 +30,11 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
         <p class="price">{price}</p>
         <p class="quantity">{quantity} left in stock</p>
         <div class="actions product-actions">
-          <a class="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
-          <a class="button edit" onClick={showForm}>Edit</a>
+          <a href="/#" class="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
+          <a href="/#" class="button edit" onClick={showForm}>Edit</a>
           {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} onUpdateProduct={onUpdateProduct}/> : <></>}
         </div>
-        <a class="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
+        <a href="/#" class="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
       </div>
     </div>
   )
