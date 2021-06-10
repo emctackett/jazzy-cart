@@ -2,7 +2,7 @@ import React from 'react';
 // import axios from 'axios';
 // import Header from './Header';
 import Products from './Products';
-// import AddProductForm from './AddProductForm';
+import AddProductForm from './AddProductForm';
 
 // import {useState, useEffect} from 'react';
 
@@ -117,7 +117,7 @@ const App = () => {
               onAddToCart={handleAddToCart}
               */
         />
-        {/*}<AddProductForm onAddProduct={handleAddProduct} />{*/}
+        <AddProductForm />
       </main>
     </div>
   );

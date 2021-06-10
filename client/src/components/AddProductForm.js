@@ -1,5 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import { addProductSuccess } from "../lib/actions/productActions"
 import Form from './Form';
 
 const AddProductForm = ({ onAddProduct }) => {
@@ -7,6 +10,10 @@ const AddProductForm = ({ onAddProduct }) => {
 	const [ title, setTitle ] = useState('');
 	const [ price, setPrice ] = useState('');
 	const [ quantity, setQuantity ] = useState('');
+
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+
 	const showForm = () => {
 		setVisibility(true);
 	};
@@ -21,11 +28,14 @@ const AddProductForm = ({ onAddProduct }) => {
 		setQuantity('');
 	};
 
-	const handleAddProduct = (e) => {
+	const handleAddProduct = (e, formData) => {
 		e.preventDefault();
-		onAddProduct({ title, price, quantity });
-		resetInputs();
-	};
+    axios
+      .post('/api/products', formData)
+      .then((response) => response.data)
+      .then((data) => dispatch(addProductSuccess(data)))
+		resetInputs()
+  }
 
 	return (
 		<div class={visibility ? 'add-form visible' : 'add-form'}>

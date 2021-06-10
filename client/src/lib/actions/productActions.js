@@ -9,3 +9,9 @@ export const deleteProduct = (products, productId) => {
     type: "PRODUCT_DELETE", payload: {products, productId}
   }
 };
+
+export const addProductSuccess = (newProduct) => {
+  return {
+    type: "ADD_PRODUCT", payload: {newProduct}
+  }
+}

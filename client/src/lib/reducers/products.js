@@ -6,7 +6,10 @@ export const products = (state = [], action) => {
       return action.payload.products.filter(product => {
         return product._id !== action.payload.productId
       });
+    } case "ADD_PRODUCT": {
+      return state.concat(action.payload.newProduct);
     }
+
     default:
       return state;
   }
