@@ -13,26 +13,26 @@ const Form = ({
 }) => {
 	return (
 		<form>
-			<div class="input-group">
-				<label for="product-name">Product Name</label>
+			<div className="input-group">
+				<label htmlFor="product-name">Product Name</label>
 				<input type="text" id="product-name" value={title} onChange={(e) => changeTitle(e.target.value)} />
 			</div>
 
-			<div class="input-group">
-				<label for="product-price">Price</label>
+			<div className="input-group">
+				<label htmlFor="product-price">Price</label>
 				<input type="text" id="product-price" value={price} onChange={(e) => changePrice(e.target.value)} />
 			</div>
 
-			<div class="input-group">
-				<label for="product-quantity">Quantity</label>
+			<div className="input-group">
+				<label htmlFor="product-quantity">Quantity</label>
 				<input type="text" id="product-quantity" value={quantity} onChange={(e) => changeQuantity(e.target.value)} />
 			</div>
 
-			<div class="actions form-actions">
-				<a href="/#" class="button" onClick={buttonHandler}>
+			<div className="actions form-actions">
+				<a href="/#" className="button" onClick={buttonHandler}>
 					{buttonType}
 				</a>
-				<a href="/#" class="button" onClick={onCancel}>
+				<a href="/#" className="button" onClick={onCancel}>
 					Cancel
 				</a>
 			</div>

@@ -11,7 +11,7 @@ const EditProduct = ({ title, price, quantity, _id, handler, onUpdateProduct }) 
 		onUpdateProduct({ _id, title: newTitle, price: newPrice, quantity: newQuantity });
 	};
 	return (
-		<div class="edit-form">
+		<div className="edit-form">
 			<h3>Edit Product</h3>
 			<Form
 				title={newTitle}
