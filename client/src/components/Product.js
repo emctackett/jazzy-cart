@@ -24,17 +24,17 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
   }
 
   return (
-    <div class="product">
-      <div class="product-details">
+    <div className="product">
+      <div className="product-details">
         <h3>{title}</h3>
-        <p class="price">{price}</p>
-        <p class="quantity">{quantity} left in stock</p>
-        <div class="actions product-actions">
-          <a class="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
-          <a class="button edit" onClick={showForm}>Edit</a>
+        <p className="price">{price}</p>
+        <p className="quantity">{quantity} left in stock</p>
+        <div className="actions product-actions">
+          <a href="/#" className="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
+          <a href="/#" className="button edit" onClick={showForm}>Edit</a>
           {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} onUpdateProduct={onUpdateProduct}/> : <></>}
         </div>
-        <a class="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
+        <a href="/#" className="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
       </div>
     </div>
   )

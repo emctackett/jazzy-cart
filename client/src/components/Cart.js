@@ -31,7 +31,7 @@ const Cart = ({ cartItems, onCheckout }) => {
 					</tr>
 				</tbody>
 			</table>
-			<a class="button checkout" onClick={handleCheckout}>
+			<a href="/#" class="button checkout" onClick={handleCheckout}>
 				Checkout
 			</a>
 		</div>

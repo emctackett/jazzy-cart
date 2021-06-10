@@ -3,3 +3,9 @@ export const productsReceivedSuccess = (products) => {
     type: "PRODUCTS_RECEIVED", payload: {products}
   }
 };
+
+export const deleteProduct = (productId) => {
+  return {
+    type: "PRODUCT_DELETE", payload: {productId}
+  }
+};

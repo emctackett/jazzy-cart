@@ -29,10 +29,10 @@ const Form = ({
 			</div>
 
 			<div class="actions form-actions">
-				<a class="button" onClick={buttonHandler}>
+				<a href="/#" class="button" onClick={buttonHandler}>
 					{buttonType}
 				</a>
-				<a class="button" onClick={onCancel}>
+				<a href="/#" class="button" onClick={onCancel}>
 					Cancel
 				</a>
 			</div>

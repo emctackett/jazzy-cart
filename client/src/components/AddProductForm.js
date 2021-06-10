@@ -30,7 +30,7 @@ const AddProductForm = ({ onAddProduct }) => {
 	return (
 		<div class={visibility ? 'add-form visible' : 'add-form'}>
 			<p>
-				<a class="button add-product-button" onClick={showForm}>
+				<a href="/#" class="button add-product-button" onClick={showForm}>
 					Add A Product
 				</a>
 			</p>
