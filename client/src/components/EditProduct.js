@@ -14,6 +14,7 @@ const EditProduct = ({ title, price, quantity, _id, handler }) => {
 
 	const handleUpdateProduct = (e, formData) => {
 		e.preventDefault();
+		handler();
 
 		const id = formData.id;
 		axios
