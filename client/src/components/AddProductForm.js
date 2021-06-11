@@ -29,6 +29,7 @@ const AddProductForm = ({ onAddProduct }) => {
 	};
 
 	const handleAddProduct = (e, formData) => {
+		console.log(formData);
 		e.preventDefault();
     axios
       .post('/api/products', formData)

@@ -15,3 +15,10 @@ export const addProductSuccess = (newProduct) => {
     type: "ADD_PRODUCT", payload: {newProduct}
   }
 }
+
+export const editProductSuccess = (product) => {
+  console.log('executing action func')
+  return {
+    type: "EDIT_PRODUCT", payload: {product}
+  }
+}

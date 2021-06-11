@@ -9,8 +9,19 @@ const Form = ({
 	changeTitle,
 	changePrice,
 	changeQuantity,
-	onCancel
+	onCancel,
+	id
 }) => {
+
+	const handleSubmit = (e) => {
+		console.log("id", id);
+		if (!id) {
+			buttonHandler(e, {title, price, quantity})
+		} else {
+			buttonHandler(e, {id, title, price, quantity})
+		}
+	}
+
 	return (
 		<form>
 			<div className="input-group">
@@ -29,7 +40,7 @@ const Form = ({
 			</div>
 
 			<div className="actions form-actions">
-				<a href="/#" className="button" onClick={buttonHandler}>
+				<a href="/#" className="button" onClick={handleSubmit}>
 					{buttonType}
 				</a>
 				<a href="/#" className="button" onClick={onCancel}>

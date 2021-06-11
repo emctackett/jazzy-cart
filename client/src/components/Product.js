@@ -45,7 +45,7 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
         <div className="actions product-actions">
           <a href="/#" className="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
           <a href="/#" className="button edit" onClick={showForm}>Edit</a>
-          {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} onUpdateProduct={onUpdateProduct}/> : <></>}
+          {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} /> : <></>}
         </div>
         <a href="/#" className="delete-button" onClick={handleDeleteProduct}><span>X</span></a>
       </div>
