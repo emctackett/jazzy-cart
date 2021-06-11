@@ -14,7 +14,6 @@ const Form = ({
 }) => {
 
 	const handleSubmit = (e) => {
-		console.log("id", id);
 		if (!id) {
 			buttonHandler(e, {title, price, quantity})
 		} else {

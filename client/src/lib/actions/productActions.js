@@ -17,7 +17,6 @@ export const addProductSuccess = (newProduct) => {
 }
 
 export const editProductSuccess = (product) => {
-  console.log('executing action func')
   return {
     type: "EDIT_PRODUCT", payload: {product}
   }

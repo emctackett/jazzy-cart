@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProductSuccess } from "../lib/actions/productActions"
 import Form from './Form';
 
@@ -12,7 +12,6 @@ const AddProductForm = ({ onAddProduct }) => {
 	const [ quantity, setQuantity ] = useState('');
 
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
 
 	const showForm = () => {
 		setVisibility(true);
@@ -39,9 +38,9 @@ const AddProductForm = ({ onAddProduct }) => {
   }
 
 	return (
-		<div class={visibility ? 'add-form visible' : 'add-form'}>
+		<div className={visibility ? 'add-form visible' : 'add-form'}>
 			<p>
-				<a href="/#" class="button add-product-button" onClick={showForm}>
+				<a href="/#" className="button add-product-button" onClick={showForm}>
 					Add A Product
 				</a>
 			</p>

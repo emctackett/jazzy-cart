@@ -1,11 +1,10 @@
 import React from "react";
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector } from "react-redux";
 
 import EmptyCart from "./EmptyCart";
 import Cart from "./Cart";
 
 const Header = () => {
-  const dispatch = useDispatch()
   const cart = useSelector(state => state.cart);
 
   return (

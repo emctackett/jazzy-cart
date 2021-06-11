@@ -1,7 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
-import {useSelector, useDispatch} from "react-redux";
-
+import {useSelector } from "react-redux";
 import CartItem from './CartItem';
 
 
@@ -17,30 +15,27 @@ const Cart = () => {
 		//onCheckout();
 	};
 
-
-
-	// const dispatch = useDispatch();
 	const cartItems = useSelector(state => state.cart)
 
 	return (
-		<div class="cart">
+		<div className="cart">
 			<h2>Your Cart</h2>
-			<table class="cart-items">
+			<table className="cart-items">
 				<tbody>
 					<tr>
 						<th>Item</th>
 						<th>Quantity</th>
 						<th>Price</th>
 					</tr>
-					{cartItems.map((item) => <CartItem {...item} key={item.productId} />)}
+					{cartItems.map((item) => <CartItem {...item} key={item._id} />)}
 					<tr>
-						<td colSpan="3" class="total">
+						<td colSpan="3" className="total">
 							Total: ${getTotal()}
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<a href="/#" class="button checkout" onClick={handleCheckout}>
+			<a href="/#" className="button checkout" onClick={handleCheckout}>
 				Checkout
 			</a>
 		</div>

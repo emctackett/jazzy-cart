@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import EditProduct from "./EditProduct";
@@ -9,6 +9,9 @@ import {editProductSuccess} from '../lib/actions/productActions';
 import {addToCartSuccess} from '../lib/actions/cartActions';
 
 const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDeleteProduct}) => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+
   const [showEdit, setEdit] = useState(false);
 
   const showForm = () => {
@@ -19,9 +22,6 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
     setEdit(false);
   }
 
-
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
 
   const handleDeleteProduct = (e) => {
   e.preventDefault();
