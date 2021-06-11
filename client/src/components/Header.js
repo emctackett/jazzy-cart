@@ -1,12 +1,17 @@
 import React from "react";
+import {useSelector, useDispatch} from "react-redux";
+
 import EmptyCart from "./EmptyCart";
 import Cart from "./Cart";
 
-const Header = ({cartItems, onCheckout}) => {
+const Header = () => {
+  const dispatch = useDispatch()
+  const cart = useSelector(state => state.cart);
+
   return (
     <header>
       <h1>The Shop!</h1>
-      {cartItems.length === 0 ? <EmptyCart /> : <Cart cartItems={cartItems} onCheckout={onCheckout}/>}
+      {cart.length === 0 ? <EmptyCart /> : <Cart />}
     </header>
   );
 }

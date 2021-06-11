@@ -20,7 +20,7 @@ const Products = ({addToCart, onUpdateProduct, onDeleteProduct, onAddToCart}) =>
   return (
     <div className="product-listing">
       <h2>Products</h2>
-      {products.map(product => <Product {...product} key={product._id} addToCart={addToCart} onUpdateProduct={onUpdateProduct} onDeleteProduct={onDeleteProduct} onAddToCart={onAddToCart} />)}
+      {products.map(product => <Product {...product} key={product._id} addToCart={addToCart} onUpdateProduct={onUpdateProduct} onDeleteProduct={onDeleteProduct}  />)}
     </div>
   );
 }

@@ -1,7 +1,11 @@
 import React from 'react';
+// import axios from 'axios';
+import {useSelector, useDispatch} from "react-redux";
+
 import CartItem from './CartItem';
 
-const Cart = ({ cartItems, onCheckout }) => {
+
+const Cart = () => {
 	const getTotal = () => {
 		return cartItems.reduce((acc, item) => {
 			return acc + item.price * item.quantity;
@@ -10,8 +14,13 @@ const Cart = ({ cartItems, onCheckout }) => {
 
 	const handleCheckout = (e) => {
 		e.preventDefault();
-		onCheckout();
+		//onCheckout();
 	};
+
+
+
+	// const dispatch = useDispatch();
+	const cartItems = useSelector(state => state.cart)
 
 	return (
 		<div class="cart">

@@ -9,8 +9,8 @@ export const products = (state = [], action) => {
     } case "ADD_PRODUCT": {
       return state.concat(action.payload.newProduct);
     } case "EDIT_PRODUCT": {
-      console.log('executing reducer', state)
-      console.log('action payload', action.payload)
+      // console.log('executing reducer. state: ', state)
+      // console.log('action payload', action.payload)
       const updatedProducts = state.map(product => {
         	if (product._id === action.payload.product._id) {
         		return action.payload.product;

@@ -5,8 +5,10 @@ import EditProduct from "./EditProduct";
 import { useState } from "react";
 import { deleteProduct } from "../lib/actions/productActions"
 
+import {editProductSuccess} from '../lib/actions/productActions';
+import {addToCartSuccess} from '../lib/actions/cartActions';
 
-const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDeleteProduct, onAddToCart}) => {
+const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDeleteProduct}) => {
   const [showEdit, setEdit] = useState(false);
 
   const showForm = () => {
@@ -17,10 +19,6 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
     setEdit(false);
   }
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
-    onAddToCart({productId: _id, _id, title, price, quantity});
-  }
 
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
@@ -36,6 +34,30 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
       .catch((error) => console.log(error));
   }
 
+  const handleAddToCart = (productData) => {
+    if (productData.quantity === 0) {
+      return;
+    }
+
+    const id = productData._id;
+    productData.quantity--;
+
+    axios.put(`/api/products/${id}`, productData).then((res) => {
+      // console.log("product data: ", productData);
+      // console.log("res.data", res.data)
+      dispatch(editProductSuccess(res.data));
+    });
+
+    axios.post('/api/cart', productData).then((response) => response.data).then((item) => {
+      dispatch(addToCartSuccess(productData))
+    });
+  };
+
+  const onAddToCart = (e) => {
+    e.preventDefault();
+    handleAddToCart({_id, title, price, quantity})
+  };
+
   return (
     <div className="product">
       <div className="product-details">
@@ -43,7 +65,7 @@ const Product = ({_id, title, price, quantity, addToCart, onUpdateProduct, onDel
         <p className="price">{price}</p>
         <p className="quantity">{quantity} left in stock</p>
         <div className="actions product-actions">
-          <a href="/#" className="button add-to-cart" onClick={handleAddToCart}>Add to Cart</a>
+          <a href="/#" className="button add-to-cart" onClick={onAddToCart}>Add to Cart</a>
           <a href="/#" className="button edit" onClick={showForm}>Edit</a>
           {showEdit ? <EditProduct title={title} price={price} quantity={quantity} _id={_id} handler={hideForm} /> : <></>}
         </div>
